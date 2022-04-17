@@ -1,0 +1,61 @@
+.header {
+  width: 100%;
+  padding: 1% 2%;
+}
+.header ul {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoH-container {
+  width: 8%;
+  align-items: center;
+}
+
+.locationH-container {
+  width: 10%;
+  align-items: center;
+}
+
+.searchHcontainer {
+  width: 35%;
+}
+
+.userHcontainer {
+  width: 10%;
+  align-items: center;
+}
+
+.pedidosHcontainer {
+  width: 10%;
+  align-items: center;
+}
+.cartHcontainer {
+  width: 4%;
+  align-items: center;
+}
+
+.searchProduct {
+    width: 100%;
+    padding: 2%;
+}
+.searchProduct form {
+    width: 80%;
+}
+
+.categoryH {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 8px;
+}
+.inputProduct {
+    width: 90%;
+}
+
+.buttonSearch {
+    width: 10%;
+    background-color: #F0AD64;
+    border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

@@ -1,0 +1,19 @@
+.login-google, .login-facebook{
+    width: 48%;
+    border-radius: 10px;
+    padding: 1%;
+}
+.login {
+    background: #f0c14b !important;
+    border-color: #a88734 #9c7e31 #846a29 !important;
+    color: #111 !important;
+    border-radius: 3px;
+    padding: 1%;
+}
+
+.login-facebook {
+    background-color: #4267B2;
+}
+.login-google {
+    background-color: #d34836;
+}

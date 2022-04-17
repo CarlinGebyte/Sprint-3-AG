@@ -1,0 +1,16 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5% 2%;
+}
+.NavFooter {
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.logo-footer {
+    border-top: 1px solid #565959;
+    margin-top: 3%;
+}
