@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
-import { listAsync } from "../redux/actions/actionProducts";
+import { useNavigate } from "react-router-dom";
+import { deleteAsync, listAsync } from "../redux/actions/actionProducts";
+import EditProduct from "./EditProduct";
 
 function Main() {
   const dispatch = useDispatch();
@@ -12,26 +13,34 @@ function Main() {
 
   useEffect(() => {
     dispatch(listAsync());
-  }, []);
+  }, [dispatch]);
 
-  const edit = (product) => {
-    setModal(true);
-    setEnviarDatosModal(product);
-  };
+  useEffect(() => {
+    if (modal) {
+      // setModal(false);
+    } else {
+      // setModal(true);
+    }
+  }, [modal]);
 
   const navigate = useNavigate();
 
+  const edit = (product) => {
+    setEnviarDatosModal(product);
+    setModal(true);
+  };
+
   return (
-    <div>
+    <div className="flex flex-wrap justify-center items-center">
       {products.map((product) => (
         <div
-          className="max-w-sm rounded overflow-hidden shadow-lg"
+          className="max-w-sm rounded overflow-hidden shadow-lg m-4"
           key={product.id}
         >
           <img
             className="w-full"
             src={product.image}
-            alt="Sunset in the mountains"
+            alt="product"
           />
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{product.name}</div>
@@ -43,25 +52,34 @@ function Main() {
               {product.category}
             </span>
           </div>
-          <div className="px-6 pt-4 pb-2">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={() => {
-              localStorage.setItem("product", JSON.stringify(product));
-              navigate('/description')
-            }}>
+          <div className="px-6 pt-4 pb-2 text-center">
+            <button
+              className="m-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => {
+                localStorage.setItem("product", JSON.stringify(product));
+                navigate("/description");
+              }}
+            >
               descripción
             </button>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               onClick={() => edit(product)}
             >
               Editar
             </button>
-            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button
+              className="m-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={() => {
+                dispatch(deleteAsync(product.id));
+              }}
+            >
               Eliminar
             </button>
           </div>
         </div>
       ))}
+      {modal === true ? <EditProduct modal={enviarDatosModal} close={setModal} /> : ""}
     </div>
   );
 }

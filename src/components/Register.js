@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import { registerAsync } from "../redux/actions/actionRegister";
 
@@ -76,18 +77,11 @@ function Register() {
               onChange={handleInputChange}
             />
           </div>
+          <Link to="/login">¿Ya tienes cuenta?</Link>
           <button className="login mt-4" type="submit">
             SingUp
           </button>
         </form>
-        <div className="flex justify-between mt-4">
-          <button className="login-google text-white">
-            <i className="fab fa-google"></i>
-          </button>
-          <button className="login-facebook text-white">
-            <i className="fab fa-facebook-f"></i>
-          </button>
-        </div>
       </div>
     </div>
   );

@@ -4,7 +4,11 @@ import "../styles/Login.css";
 import * as Yup from "yup";
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
-import { loginEmailPassAsync, loginFacebook, loginGoogle } from "../redux/actions/actionLogin";
+import {
+  loginEmailPassAsync,
+  loginFacebook,
+  loginGoogle,
+} from "../redux/actions/actionLogin";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -45,7 +49,6 @@ function Login() {
           }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            console.log(values);
             dispatch(loginEmailPassAsync(values.email, values.password));
           }}
         >
@@ -60,7 +63,7 @@ function Login() {
                   placeholder="Email"
                 />{" "}
                 {errors.email && touched.email ? (
-                  <div className="text-red-500">{errors.name}</div>
+                  <div className="text-red-500">{errors.email}</div>
                 ) : null}
               </div>
               <div>
@@ -79,6 +82,7 @@ function Login() {
                 Login
               </button>
               <button
+              type="button"
                 className="login-facebook text-white"
                 onClick={handleReset}
               >

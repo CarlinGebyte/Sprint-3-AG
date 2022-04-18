@@ -37,11 +37,11 @@
 }
 
 .searchProduct {
-    width: 100%;
-    padding: 2%;
+  width: 100%;
+  padding: 2%;
 }
 .searchProduct form {
-    width: 80%;
+  width: 80%;
 }
 
 .categoryH {
@@ -50,12 +50,57 @@
   padding: 8px;
 }
 .inputProduct {
-    width: 90%;
+  width: 90%;
 }
 
 .buttonSearch {
-    width: 10%;
-    background-color: #F0AD64;
-    border-top-right-radius: 8px;
+  width: 10%;
+  background-color: #f0ad64 !important;
+  border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+@media (max-width: 1000px) {
+  .header ul {
+    flex-direction: column;
+  }
+
+  .logoH-container {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .logoH-container img {
+    margin: 0 auto;
+  }
+
+  .locationH-container {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .searchHcontainer {
+    width: 100%;
+  }
+  .searchProduct {
+    justify-content: center;
+  }
+
+  .userHcontainer {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .pedidosHcontainer {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .cartHcontainer {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
 }

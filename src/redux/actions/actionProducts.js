@@ -1,28 +1,32 @@
-// ===========> Edit <=============
 
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDocs,
   query,
   updateDoc,
+  where,
 } from "firebase/firestore";
 import { baseDato } from "../../firebase/firebaseConfig";
 import { typesProducts } from "../types/types";
+
+// ===========> Edit <=============
 
 export const editAsync = (codigo, product) => {
   console.log(codigo, product);
   return async (dispatch) => {
     const getCollection = collection(baseDato, "AmazonasBD");
-    const q = query(getCollection, "products", "id", codigo);
-    const getDataQuery = await q.get();
+    const q = query(getCollection, where("id", "==", codigo));
+    const getDataQuery = await getDocs(q);
     let id;
     getDataQuery.forEach((doc) => {
       id = doc.id;
     });
+    console.log(getDataQuery);
     console.log(id);
-    const documentRef = doc(baseDato, "plantasBD", id);
+    const documentRef = doc(baseDato, "AmazonasBD", id);
     await updateDoc(documentRef, product)
       .then((result) => {
         dispatch(editSync(product));
@@ -47,10 +51,11 @@ export const editSync = (product) => {
 export const deleteAsync = (codigo) => {
   return async (dispatch) => {
     const getCollections = collection(baseDato, "AmazonasBD");
-    const q = query(getCollections, "products", "id", codigo);
-    const getDataQuery = await q.get();
-    getDataQuery.forEach((doc) => {
-      doc.ref.delete();
+    const q = query(getCollections, where("id", "==", codigo));
+    const getDataQuery = await getDocs(q);
+    console.log(getDataQuery);
+    getDataQuery.forEach((docu) => {
+      deleteDoc(doc(baseDato, "AmazonasBD", docu.id));
     });
     dispatch(deleteSync(codigo));
     dispatch(listAsync());

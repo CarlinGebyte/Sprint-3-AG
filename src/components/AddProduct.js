@@ -16,7 +16,7 @@ function AddProduct() {
     category: "",
   });
 
-  const { name, price, description, image, category } = values;
+  const { name, price, description, category } = values;
 
   const handleSubmit = (e) => {
     values.id = uuid();
