@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sprint-3-AG/static/css/main.2bfa3fb0.css",
+    "main.js": "/Sprint-3-AG/static/js/main.39848050.js",
+    "index.html": "/Sprint-3-AG/index.html",
+    "main.2bfa3fb0.css.map": "/Sprint-3-AG/static/css/main.2bfa3fb0.css.map",
+    "main.39848050.js.map": "/Sprint-3-AG/static/js/main.39848050.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bfa3fb0.css",
+    "static/js/main.39848050.js"
+  ]
+}
